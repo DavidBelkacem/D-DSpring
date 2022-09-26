@@ -8,6 +8,11 @@ public class Character {
 
     public Character() {
     }
+    public Character(String name, String type, int life) {
+        this.name = name;
+        this.type = type;
+        this.life = life;
+    }
     public Character(int id, String name, String type, int life) {
         this.id = id;
         this.name = name;
@@ -49,6 +54,6 @@ public class Character {
 
     @Override
     public String toString() {
-        return this.name + " " + this.id + " " + this.life;
+        return this.name + " " + this.type + " " + this.life + " " + this.id;
     }
 }

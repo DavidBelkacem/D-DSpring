@@ -37,13 +37,26 @@
                             <td class="text-sm text-gray-100 font-light px-6 py-4 whitespace-nowrap" th:utext="${character.name}"></td>
                             <td class="text-sm text-gray-100 font-light px-6 py-4 whitespace-nowrap" th:utext="${character.type}"></td>
                             <td class="text-sm text-gray-100 font-light px-6 py-4 whitespace-nowrap" th:utext="${character.life}"></td>
-                            <td class="text-sm text-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="flex flex-row text-sm text-gray-100 font-light px-6 py-4 whitespace-nowrap">
                                 <a th:href="@{'/characters/' + ${character.id}}">
                                     <button
                                             class="text-white mr-2 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                                         Voir
                                     </button>
                                 </a>
+                                <a th:href="@{'/characters/update/' + ${character.id}}">
+                                    <button
+                                            class="text-white mr-2 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                        Modifier
+                                    </button>
+                                </a>
+                                <form  th:action="@{'/characters/' + ${character.id}}" th:method="delete"/>
+                                    <button
+                                            type="submit"
+                                            class="text-white mr-2 bg-red-700 hover:bg-red-800 focus:ring-2 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                        Supprimer
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>
