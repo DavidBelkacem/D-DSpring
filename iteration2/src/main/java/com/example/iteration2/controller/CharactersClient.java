@@ -27,7 +27,6 @@ public class CharactersClient {
     public String displayCharacter(@PathVariable("id") int id, Model model) {
         String URL_GET_CHARACTER = URL + id;
         Character character= restTemplate.getForObject(URL_GET_CHARACTER, Character.class);
-        System.out.println(character);
         model.addAttribute("character", character);
         return "character";
     }
@@ -35,7 +34,6 @@ public class CharactersClient {
     @GetMapping("characters/add")
     public String getAddCharacterForm(Model model) {
         model.addAttribute("character", new Character());
-        System.out.println(model.getAttribute("character"));
         model.addAttribute("method", "post");
         return "form-character";
     }
@@ -43,7 +41,6 @@ public class CharactersClient {
     @PostMapping("/characters/add")
         public String addCharacter(@ModelAttribute Character newCharacter, Model model) {
         String URL_ADD_CHARACTER = URL + "add";
-        System.out.println(newCharacter);
         restTemplate.postForLocation(URL_ADD_CHARACTER, newCharacter);
         return "redirect:/characters";
     }
